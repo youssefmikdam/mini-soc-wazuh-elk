@@ -42,3 +42,19 @@ It simulates real-world cyber attacks and analyzes them using a centralized SIEM
 ## 👤 Author
 **Youssef Mikdam**  
 Cybersecurity Engineering Student
+---
+
+## 📸 Screenshots
+
+### Wazuh Dashboard Overview
+![Dashboard](screenshots/dashboard.png)
+
+### SQL Injection Detection
+![SQL Injection](screenshots/sql-injection.png)
+
+### SSH Brute Force Detection
+![SSH Brute Force](screenshots/ssh-bruteforce.png)
+
+### File Integrity Monitoring (FIM)
+![FIM](screenshots/fim.png)
+
