@@ -1,17 +1,15 @@
-# SQL Injection Detection
+# Scénario 2 : Détection d'Injection SQL
 
-In this project, a SQL injection attack scenario was analyzed through
-web server logs.
+## Objectif
+Identifier une tentative d'exploitation web visant à extraire des données de la base de données via une URL malveillante.
 
-Suspicious HTTP requests containing abnormal parameters were sent to
-the web application.
+## Environnement
+- **Service Cible :** Serveur Web Apache2 sur Ubuntu.
+- **Log surveillé :** `/var/log/apache2/access.log`.
 
-These requests were recorded in the Apache access logs.
+## Simulation de l'Attaque
+L'attaque a été lancée depuis la machine Kali Linux sans navigateur, en utilisant l'outil `curl` pour injecter une commande SQL.
 
-Wazuh analyzed the logs and detected patterns associated with SQL
-injection attempts.
-
-A security alert was generated and visualized on the dashboard.
-
-This scenario demonstrates how log analysis can help a SOC detect
-application-layer attacks.
+**Commande d'attaque :**
+```bash
+curl -XGET "[http://192.168.11.194/users/?id=SELECT+*+FROM+users](http://192.168.11.194/users/?id=SELECT+*+FROM+users)"

@@ -1,15 +1,13 @@
-# File Integrity Monitoring (FIM)
+# Scénario 1 : Surveillance de l'Intégrité des Fichiers (FIM)
 
-In this project, File Integrity Monitoring was used to detect unauthorized
-changes on the victim system.
+## Objectif
+Détecter toute modification non autorisée (création, modification, suppression) dans un répertoire critique contenant des données sensibles.
 
-Sensitive system files were monitored in order to detect file creation,
-modification or deletion.
+## Configuration de l'Agent
+Le fichier `ossec.conf` de l'agent Ubuntu a été modifié pour surveiller le dossier `/root/projet` en temps réel.
 
-When a file was created or modified, the event was recorded and analyzed
-by Wazuh.
-
-An alert was then generated and displayed on the Wazuh dashboard.
-
-This scenario shows how a SOC can detect suspicious system changes that
-may indicate malware activity or unauthorized access.
+**Extrait de la configuration XML :**
+```xml
+<syscheck>
+  <directories check_all="yes" report_changes="yes" realtime="yes">/root/projet</directories>
+</syscheck>

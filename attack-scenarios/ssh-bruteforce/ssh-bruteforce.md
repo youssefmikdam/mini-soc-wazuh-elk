@@ -1,11 +1,16 @@
-# SSH Brute Force Attack
+# Scénario 3 : Attaque Brute Force SSH
 
-In this project, an SSH brute force attack scenario was studied.
+## Objectif
+Détecter une tentative d'intrusion par dictionnaire visant à deviner le mot de passe d'un utilisateur système.
 
-Multiple failed SSH login attempts were generated from the attacker machine.
-These attempts were recorded in the system authentication logs.
+## Outils utilisés
+- **Attaquant :** Hydra (sur Kali Linux)
+- **Liste de mots de passe :** rockyou.txt
+- **Cible :** Service OpenSSH sur Ubuntu
 
-Wazuh analyzed these logs and detected abnormal behavior,
-generating a security alert visible on the dashboard.
+## Simulation de l'Attaque
+Lancement d'une attaque automatisée rapide :
 
-This scenario demonstrates how a SOC can detect unauthorized access attempts.
+**Commande Hydra :**
+```bash
+hydra -l vboxuser -P /usr/share/wordlists/rockyou.txt ssh://192.168.11.194 -t 4
