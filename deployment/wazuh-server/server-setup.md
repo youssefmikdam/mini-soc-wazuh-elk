@@ -11,6 +11,7 @@ Avant le lancement, la mémoire virtuelle de l'hôte a été configurée pour su
 
 ```bash
 sysctl -w vm.max_map_count=262144
+```
 Installation
 Le déploiement s'est fait via le dépôt officiel. Voici les commandes utilisées :
 
@@ -19,13 +20,16 @@ Clonage du dépôt :
 ```bash
 
 git clone [https://github.com/wazuh/wazuh-docker.git](https://github.com/wazuh/wazuh-docker.git) -b v4.9.0
-Génération des certificats SSL :
 ```
+Génération des certificats SSL :
+
 ```bash
 
 docker-compose -f generate-indexer-certs.yml run --rm generator
-Démarrage des services :
 ```
+Démarrage des services :
+
 ```bash
 
 docker-compose up -d```
+```
