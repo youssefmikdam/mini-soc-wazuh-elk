@@ -10,3 +10,18 @@ Pour optimiser les ressources, le serveur SOC a été déployé sur une machine 
 Avant le lancement, la mémoire virtuelle de l'hôte a été configurée pour supporter la stack ELK :
 ```bash
 sysctl -w vm.max_map_count=262144
+Installation
+Le déploiement s'est fait via le dépôt officiel :
+
+Clonage du dépôt :
+
+
+git clone [https://github.com/wazuh/wazuh-docker.git](https://github.com/wazuh/wazuh-docker.git) -b v4.9.0
+Génération des certificats SSL :
+
+
+docker-compose -f generate-indexer-certs.yml run --rm generator
+Démarrage des services :
+
+
+docker-compose up -d
