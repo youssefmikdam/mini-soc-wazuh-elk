@@ -16,16 +16,16 @@ Le déploiement s'est fait via le dépôt officiel. Voici les commandes utilisé
 
 Clonage du dépôt :
 
-
+bash
 
 git clone [https://github.com/wazuh/wazuh-docker.git](https://github.com/wazuh/wazuh-docker.git) -b v4.9.0
 Génération des certificats SSL :
 
-
+bash
 
 docker-compose -f generate-indexer-certs.yml run --rm generator
 Démarrage des services :
 
-
+bash
 
 docker-compose up -d
