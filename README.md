@@ -1,6 +1,5 @@
 # 🛡️ Mini-SOC Project : Wazuh & ELK Stack
 
-![Wazuh](https://img.shields.io/badge/SIEM-Wazuh-blue) ![ELK](https://img.shields.io/badge/Stack-ELK-orange) ![Docker](https://img.shields.io/badge/Container-Docker-2496ED) ![Security](https://img.shields.io/badge/Security-Blue%20Team-red)
 
 ## 📌 Présentation du Projet
 Ce projet académique vise à mettre en œuvre un **Centre Opérationnel de Sécurité (SOC)** fonctionnel à échelle réduite. L'objectif est de simuler une infrastructure d'entreprise, d'exécuter des attaques réelles (Red Team) et de configurer la détection et l'analyse des incidents (Blue Team).
