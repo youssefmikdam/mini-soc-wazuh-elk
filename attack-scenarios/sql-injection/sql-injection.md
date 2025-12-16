@@ -11,5 +11,15 @@ Identifier une tentative d'exploitation web visant à extraire des données de l
 L'attaque a été lancée depuis la machine Kali Linux sans navigateur, en utilisant l'outil `curl` pour injecter une commande SQL.
 
 **Commande d'attaque :**
+
 ```bash
 curl -XGET "[http://192.168.11.194/users/?id=SELECT+*+FROM+users](http://192.168.11.194/users/?id=SELECT+*+FROM+users)"
+```
+Résultat (Détection)
+Wazuh a analysé les logs Apache et identifié le motif SELECT * FROM.
+
+Alerte déclenchée : SQL injection attempt
+
+Rule ID : 31103
+
+Niveau de sévérité : Élevé (High)
