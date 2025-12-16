@@ -1,60 +1,46 @@
-# 🛡️ Mini-SOC with Wazuh & ELK Stack
+# 🛡️ Mini-SOC Project : Wazuh & ELK Stack
 
-## 📌 Overview
-This project demonstrates the design and deployment of a **Mini Security Operations Center (SOC)** using **Wazuh and the ELK Stack**.
-It simulates real-world cyber attacks and analyzes them using a centralized SIEM platform.
+![Wazuh](https://img.shields.io/badge/SIEM-Wazuh-blue) ![ELK](https://img.shields.io/badge/Stack-ELK-orange) ![Docker](https://img.shields.io/badge/Container-Docker-2496ED) ![Security](https://img.shields.io/badge/Security-Blue%20Team-red)
 
-## 🧱 Architecture
-- **Host Machine**: Kali Linux (Docker + Attacker)
-- **Victim Machine**: Ubuntu Server 22.04
-- **SOC Stack**:
-  - Wazuh Manager
-  - Wazuh Indexer (Elasticsearch)
-  - Wazuh Dashboard (Kibana)
+## 📌 Présentation du Projet
+Ce projet académique vise à mettre en œuvre un **Centre Opérationnel de Sécurité (SOC)** fonctionnel à échelle réduite. L'objectif est de simuler une infrastructure d'entreprise, d'exécuter des attaques réelles (Red Team) et de configurer la détection et l'analyse des incidents (Blue Team).
 
-## ⚙️ Technologies
-- Wazuh (XDR / SIEM)
-- ELK Stack
-- Docker & Docker Compose
-- Kali Linux
-- Ubuntu Server
-- Apache2, OpenSSH
-- Hydra, Curl, Nmap
+Le cœur du SOC repose sur **Wazuh**, une solution Open Source de détection des menaces, couplée à la **Stack ELK** pour la visualisation.
 
-## 🚨 Attack Scenarios
-| Scenario | Description |
-|--------|-------------|
-| FIM | Detection of file creation, modification and deletion |
-| SQL Injection | Detection via Apache access logs |
-| SSH Brute Force | Correlation of failed authentication attempts |
+## 🏗️ Architecture Hybride
+Pour optimiser les ressources et simuler un environnement réaliste, nous avons adopté une architecture hybride :
 
-## 📊 Results
-- Real-time alerts
-- Event correlation
-- Threat visualization via dashboards
+* **Serveur SOC (Blue Team) :** Déployé sur **Kali Linux** via **Docker** (Manager, Indexer, Dashboard).
+* **Machine Victime :** Machine virtuelle **Ubuntu Server 22.04** avec l'agent Wazuh installé.
+* **Zone d'Attaque (Red Team) :** Kali Linux utilisant des outils natifs (Hydra, Curl, Nmap).
 
-## 🎯 Skills Demonstrated
-- SOC architecture design
-- SIEM deployment
-- Log analysis and correlation
-- Red Team / Blue Team operations
+## 🚀 Déploiement et Installation
 
-## 👤 Author
-**Youssef Mikdam**  
-Cybersecurity Engineering Student
+La documentation technique détaillée de l'installation est disponible ici :
+
+* 📥 **[Installation du Serveur Wazuh (Docker)](deployment/wazuh-server/server-setup.md)**
+* 🖥️ **[Installation de l'Agent Wazuh (Ubuntu)](deployment/wazuh-agent/agent-installation.md)**
+
+## ⚔️ Scénarios d'Attaque & Détection (Lab)
+
+Nous avons simulé trois vecteurs d'attaque distincts pour valider les règles de détection du SOC :
+
+| Scénario | Type d'attaque | Outil utilisé | Statut Détection |
+| :--- | :--- | :--- | :---: |
+| **[01 - Integrity Monitoring](attack-scenarios/fim/fim.md)** | Modification de fichiers critiques | `System Commands` | ✅ Détecté |
+| **[02 - Web Attack](attack-scenarios/sql-injection/sql-injection.md)** | Injection SQL (SQLi) | `Curl` | ✅ Détecté |
+| **[03 - Network Attack](attack-scenarios/ssh-bruteforce/ssh-bruteforce.md)** | SSH Brute Force | `Hydra` | ✅ Détecté |
+
+## 🛠️ Compétences Techniques
+* **SIEM & Log Management :** Collecte, normalisation et corrélation des logs.
+* **Docker & Virtualisation :** Déploiement de conteneurs et gestion de VM.
+* **Administration Linux :** Configuration des services (SSH, Apache) et permissions.
+* **Threat Hunting :** Analyse des alertes de sécurité et investigation.
+
+## 👥 Auteurs
+Projet réalisé dans le cadre du module "Protocoles de Sécurité et Services".
+* **Mikdam Youssef**
+* **Rezki Ismail**
+
 ---
-
-## 📸 Screenshots
-
-### Wazuh Dashboard Overview
-![Dashboard](screenshots/dashboard.png)
-
-### SQL Injection Detection
-![SQL Injection](screenshots/sql-injection.png)
-
-### SSH Brute Force Detection
-![SSH Brute Force](screenshots/ssh-bruteforce.png)
-
-### File Integrity Monitoring (FIM)
-![FIM](screenshots/fim.png)
-
+*Ce dépôt sert de portfolio technique documentant les travaux pratiques réalisés en laboratoire.*
